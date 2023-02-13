@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace laba8
 {
-    internal partial class Figure
+    internal abstract partial class Figure
     {
+        private double x;
+        private double y;
+        private double width;
+        private double height;
     }
 }
