@@ -6,22 +6,17 @@ using System.Threading.Tasks;
 
 namespace laba8
 {
-    internal abstract partial class Figure
+    internal abstract partial class Figure// часть класса Figure с методами и свойствами
     {
         // Свойства с проверкой на отрицатльное число, через тернарную операцию
-        public double X { set { x = value >= 0 ? value : 0; } get => x; }
-        public double Y { set { y = value >= 0 ? value : 0; } get => y; }
-        public double Width { set { width = value >= 0 ? value : 0; } get => width; }
-        public double Height { set { height = value >= 0 ? value : 0; } get => height; }
+        public double X { set { _x = value >= 0 ? value : 0; } get => _x; }
+        public double Y { set { _y = value >= 0 ? value : 0; } get => _y; }
+        public double Width { set { _width = value >= 0 ? value : 1; } get => _width; }
+        public double Height { set { _height = value >= 0 ? value : 1; } get => _height; }
 
 
         public Figure(double xc, double yc, double widthc, double heightc)=>
             (X, Y, Width, Height) = (xc, yc, widthc, heightc); // конструктор через кортеж.
-        public void Move(double movex, double movey)// метод для передвижения фигур
-        {
-            X += movex;
-            Y += movey;
-        }
-        public abstract void Draw(); //абстрактный класс через рисование
+        public abstract void Draw(); //абстрактный метод рисования
     }
 }
