@@ -68,25 +68,51 @@ namespace laba8
 
         private void radioButtonClick(object sender, EventArgs e)
         {
-            if (radioButton1.Checked || radioButton3.Checked || radioButton7.Checked == true)
+            if (radioButton1.Checked || radioButton3.Checked || radioButton7.Checked)
             {
                 (textBox1.Enabled, textBox5.Enabled) = (true, true);
                 (textBox2.Enabled, textBox6.Enabled) = (true, true);
                 textBox4.Enabled = false;
             }
 
-            else if (radioButton2.Checked || radioButton4.Checked == true)
+            else if (radioButton2.Checked || radioButton4.Checked)
             {
                 (textBox1.Enabled, textBox5.Enabled) = (true, true);
                 (textBox2.Enabled, textBox6.Enabled) = (true, false);
                 textBox4.Enabled = false;
             }
 
-            else if (radioButton5.Checked || radioButton6.Checked  == true)
+            else if (radioButton5.Checked || radioButton6.Checked)
             {
                 (textBox1.Enabled, textBox5.Enabled) = (true, true);
                 (textBox2.Enabled, textBox6.Enabled) = (true, true);
                 textBox4.Enabled = true;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.Items.Count > 1) 
+            {
+                pictureBox1.Image = null;
+
+                _figures.RemoveAt(comboBox1.SelectedIndex);
+                comboBox1.Items.Clear();
+
+                for (int i = 0; i < _figures.Count; i++)
+                {
+                    _figures[i].Draw();
+                    comboBox1.Items.Add(i);
+                }
+
+                comboBox1.SelectedIndex = 0;
+            }
+
+            else if (comboBox1.Items.Count == 1)
+            {
+                pictureBox1.Image = null;
+                _figures.RemoveAt(comboBox1.SelectedIndex);
+                comboBox1.Items.Clear();
             }
         }
     }
