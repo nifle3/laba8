@@ -72,6 +72,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Ellipse";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.Click += new System.EventHandler(this.radioButtonClick);
             // 
             // radioButton2
             // 
@@ -83,6 +84,7 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Circle";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.Click += new System.EventHandler(this.radioButtonClick);
             // 
             // radioButton3
             // 
@@ -94,6 +96,7 @@
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "Rectangle";
             this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.Click += new System.EventHandler(this.radioButtonClick);
             // 
             // radioButton4
             // 
@@ -105,6 +108,7 @@
             this.radioButton4.TabStop = true;
             this.radioButton4.Text = "Square";
             this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.Click += new System.EventHandler(this.radioButtonClick);
             // 
             // radioButton5
             // 
@@ -117,6 +121,7 @@
             this.radioButton5.Text = "Polygon";
             this.radioButton5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButton5.UseVisualStyleBackColor = true;
+            this.radioButton5.Click += new System.EventHandler(this.radioButtonClick);
             // 
             // radioButton6
             // 
@@ -128,6 +133,7 @@
             this.radioButton6.TabStop = true;
             this.radioButton6.Text = "Triangle";
             this.radioButton6.UseVisualStyleBackColor = true;
+            this.radioButton6.Click += new System.EventHandler(this.radioButtonClick);
             // 
             // radioButton7
             // 
@@ -139,6 +145,7 @@
             this.radioButton7.TabStop = true;
             this.radioButton7.Text = "My figure";
             this.radioButton7.UseVisualStyleBackColor = true;
+            this.radioButton7.Click += new System.EventHandler(this.radioButtonClick);
             // 
             // button1
             // 
@@ -259,6 +266,7 @@
             // 
             // textBox6
             // 
+            this.textBox6.Enabled = false;
             this.textBox6.Location = new System.Drawing.Point(704, 78);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(43, 23);
@@ -292,6 +300,7 @@
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.pictureBox1);
+            this.Enabled = false;
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
