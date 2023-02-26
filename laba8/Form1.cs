@@ -19,43 +19,50 @@ namespace laba8
             if (radioButton1.Checked == true && double.TryParse(textBox1.Text, out double x) && double.TryParse(textBox5.Text, out double y) && double.TryParse(textBox2.Text, out double width) && double.TryParse(textBox6.Text, out double height))
             {
                 _figures.Add(new Ellipse(x,y,width,height));
-                _figures[_figures.Count-1].Draw();    
+                _figures[_figures.Count-1].Draw();
+                comboBox1.Items.Add(_figures.IndexOf(_figures[_figures.Count - 1]));
             }
 
             else if(radioButton2.Checked == true && double.TryParse(textBox1.Text, out x) && double.TryParse(textBox5.Text, out y) && double.TryParse(textBox2.Text, out height))
             {
                 _figures.Add(new Circle(y,x, height/2));
                 _figures[_figures.Count - 1].Draw();
+                comboBox1.Items.Add(_figures.IndexOf(_figures[_figures.Count - 1]));
             }
 
             else if(radioButton3.Checked == true && double.TryParse(textBox1.Text, out x) && double.TryParse(textBox5.Text, out y) && double.TryParse(textBox2.Text, out width) && double.TryParse(textBox6.Text, out height))
             {
                 _figures.Add(new Rectangle(x,y,width,height));
                 _figures[_figures.Count - 1].Draw();
+                comboBox1.Items.Add(_figures.IndexOf(_figures[_figures.Count - 1]));
             }
 
-            else if(radioButton4.Checked == true )
+            else if(radioButton4.Checked == true && double.TryParse(textBox1.Text, out x) && double.TryParse(textBox5.Text, out y) && double.TryParse(textBox2.Text, out height))
             {
-                _figures.Add(new Square());
+                _figures.Add(new Square(x,y,height));
                 _figures[_figures.Count - 1].Draw();
+                comboBox1.Items.Add(_figures.IndexOf(_figures[_figures.Count - 1]));
             }
         
             else if(radioButton5.Checked == true)
             {
                 _figures.Add(new Ellipse());
                 _figures[_figures.Count - 1].Draw();
+                comboBox1.Items.Add(_figures.IndexOf(_figures[_figures.Count - 1]));
             }
 
             else if(radioButton6.Checked == true)
             {
                 _figures.Add(new Ellipse());
                 _figures[_figures.Count - 1].Draw();
+                comboBox1.Items.Add(_figures.IndexOf(_figures[_figures.Count - 1]));
             }
 
             else if(radioButton7.Checked == true)
             {
                 _figures.Add(new Ellipse());
                 _figures[_figures.Count - 1].Draw();
+                comboBox1.Items.Add(_figures.IndexOf(_figures[_figures.Count - 1]));
             }
         }
 
