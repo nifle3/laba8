@@ -20,15 +20,15 @@ namespace laba8
             }
             else if(radioButton2.Checked == true)
             {
-                _figures.Add(new Ellipse());
+                _figures.Add(new Circle());
             }
             else if(radioButton3.Checked == true)
             {
-                _figures.Add(new Ellipse());
+                _figures.Add(new Rectangle());
             }
             else if(radioButton4.Checked == true)
             {
-                _figures.Add(new Ellipse());
+                _figures.Add(new Square());
             } 
             else if(radioButton5.Checked == true)
             {
