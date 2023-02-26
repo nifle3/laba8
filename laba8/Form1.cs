@@ -4,6 +4,8 @@ namespace laba8
     {
         private List<Figure> _figures = new List<Figure>();
 
+        
+
         public Form1()
         {
             InitializeComponent();
