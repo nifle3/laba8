@@ -150,5 +150,20 @@ namespace laba8
                 }
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(textBox4.Text, out int i))
+            {
+                if (radioButton5.Checked)
+                    _figures.Add(new Polygon(i));
+
+                else if (radioButton6.Checked)
+                    _figures.Add(new Triangle());
+
+                button4.Enabled = false;
+                button5.Enabled = true;
+            }
+        }
     }
 }
