@@ -17,10 +17,9 @@ namespace laba8
 
         private void button1_Click(object sender, EventArgs e)
         {
-            label1.Text = string.Empty;
             if (radioButton1.Checked == true && double.TryParse(textBox1.Text, out double x) && double.TryParse(textBox5.Text, out double y) && double.TryParse(textBox2.Text, out double width) && double.TryParse(textBox6.Text, out double height))
             {
-                _figures.Add(new Ellipse(x, y, width, height));
+                _figures.Add(new Ellipse(x, y, width/2, height/2));
                 _figures[_figures.Count - 1].Draw();
                 comboBox1.Items.Add(_figures.IndexOf(_figures[_figures.Count - 1]));
             }
@@ -96,7 +95,7 @@ namespace laba8
         {
             if (comboBox1.Items.Count > 1)
             {
-                pictureBox1.Image = null;
+                Init.pictureBox.Image = null;
 
                 _figures.RemoveAt(comboBox1.SelectedIndex);
                 comboBox1.Items.Clear();
@@ -112,7 +111,7 @@ namespace laba8
 
             else if (comboBox1.Items.Count == 1)
             {
-                pictureBox1.Image = null;
+                Init.pictureBox.Image = null;
 
                 _figures.RemoveAt(comboBox1.SelectedIndex);
                 comboBox1.Items.Clear();
@@ -123,10 +122,14 @@ namespace laba8
         {
             if (double.TryParse(textBox3.Text, out double deltaX) && double.TryParse(textBox7.Text, out double deltaY))
             {
-                pictureBox1.Image = null;
-                
-                _figures[comboBox1.SelectedIndex].X += deltaX;
-                _figures[comboBox1.SelectedIndex].Y += deltaY;
+                Graphics g = Graphics.FromImage(Init.bitmap);
+                g.Clear(Color.White);
+
+                if(_figures[comboBox1.SelectedIndex].X + deltaX < Init.pictureBox.Width)
+                    _figures[comboBox1.SelectedIndex].X += deltaX;
+
+                if (_figures[comboBox1.SelectedIndex].Y + deltaY < Init.pictureBox.Height)
+                    _figures[comboBox1.SelectedIndex].Y += deltaY;
 
                 foreach (Figure fg in _figures)
                 {

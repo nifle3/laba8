@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace laba8
 {
-    internal abstract partial class Figure : ICloneable// часть класса Figure с методами и свойствами
+    internal abstract partial class Figure// часть класса Figure с методами и свойствами
     {
         // Свойства с проверкой на отрицатльное число, через тернарную операцию
         public double X { set { _x = value >= 0 ? value : 0; } get => _x; }
@@ -17,8 +17,6 @@ namespace laba8
 
         public Figure(double xc, double yc, double widthc, double heightc)=>
             (X, Y, Width, Height) = (xc, yc, widthc, heightc); // конструктор через кортеж.
-        
-        public object Clone() => new Figure(X, Y, Width, Height);
         
         public abstract void Draw(); //абстрактный метод рисования
     }
