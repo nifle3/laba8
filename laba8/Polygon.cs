@@ -7,9 +7,14 @@ namespace laba8
     {
         private Point[] _points;
 
+        public int i;
+        public int count;
+
         public Polygon(int index) : base()
         {
             _points = new Point[index];
+            i = 0;
+            count = index;
         }
 
         public override void Draw()
