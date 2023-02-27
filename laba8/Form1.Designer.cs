@@ -51,6 +51,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -211,12 +212,13 @@
             this.button3.TabIndex = 16;
             this.button3.Text = "Replace";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(655, 304);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(127, 23);
+            this.textBox3.Size = new System.Drawing.Size(43, 23);
             this.textBox3.TabIndex = 17;
             // 
             // label4
@@ -274,11 +276,19 @@
             this.textBox6.Size = new System.Drawing.Size(43, 23);
             this.textBox6.TabIndex = 26;
             // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(704, 304);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(43, 23);
+            this.textBox7.TabIndex = 27;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox2);
@@ -335,5 +345,6 @@
         private TextBox textBox2;
         private TextBox textBox5;
         private TextBox textBox6;
+        private TextBox textBox7;
     }
 }
