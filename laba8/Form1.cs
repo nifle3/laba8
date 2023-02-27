@@ -17,49 +17,47 @@ namespace laba8
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (radioButton1.Checked == true && double.TryParse(textBox1.Text, out double x) && double.TryParse(textBox5.Text, out double y) && double.TryParse(textBox2.Text, out double width) && double.TryParse(textBox6.Text, out double height))
+            if (radioButton1.Checked && double.TryParse(textBox1.Text, out double x) && double.TryParse(textBox5.Text, out double y) && double.TryParse(textBox2.Text, out double width) && double.TryParse(textBox6.Text, out double height))
             {
                 _figures.Add(new Ellipse(x, y, width/2, height/2));
                 _figures[_figures.Count - 1].Draw();
                 comboBox1.Items.Add(_figures.IndexOf(_figures[_figures.Count - 1]));
             }
 
-            else if (radioButton2.Checked == true && double.TryParse(textBox1.Text, out x) && double.TryParse(textBox5.Text, out y) && double.TryParse(textBox2.Text, out height))
+            else if (radioButton2.Checked && double.TryParse(textBox1.Text, out x) && double.TryParse(textBox5.Text, out y) && double.TryParse(textBox2.Text, out height))
             {
                 _figures.Add(new Circle(y, x, height / 2));
                 _figures[_figures.Count - 1].Draw();
                 comboBox1.Items.Add(_figures.IndexOf(_figures[_figures.Count - 1]));
             }
 
-            else if (radioButton3.Checked == true && double.TryParse(textBox1.Text, out x) && double.TryParse(textBox5.Text, out y) && double.TryParse(textBox2.Text, out width) && double.TryParse(textBox6.Text, out height))
+            else if (radioButton3.Checked && double.TryParse(textBox1.Text, out x) && double.TryParse(textBox5.Text, out y) && double.TryParse(textBox2.Text, out width) && double.TryParse(textBox6.Text, out height))
             {
                 _figures.Add(new Rectangle(x, y, width, height));
                 _figures[_figures.Count - 1].Draw();
                 comboBox1.Items.Add(_figures.IndexOf(_figures[_figures.Count - 1]));
             }
 
-            else if (radioButton4.Checked == true && double.TryParse(textBox1.Text, out x) && double.TryParse(textBox5.Text, out y) && double.TryParse(textBox2.Text, out height))
+            else if (radioButton4.Checked && double.TryParse(textBox1.Text, out x) && double.TryParse(textBox5.Text, out y) && double.TryParse(textBox2.Text, out height))
             {
                 _figures.Add(new Square(x, y, height));
                 _figures[_figures.Count - 1].Draw();
                 comboBox1.Items.Add(_figures.IndexOf(_figures[_figures.Count - 1]));
             }
 
-            else if (radioButton5.Checked == true)
+            else if (radioButton5.Checked)
             {
-                _figures.Add(new Ellipse());
                 _figures[_figures.Count - 1].Draw();
                 comboBox1.Items.Add(_figures.IndexOf(_figures[_figures.Count - 1]));
             }
 
-            else if (radioButton6.Checked == true)
+            else if (radioButton6.Checked)
             {
-                _figures.Add(new Ellipse());
                 _figures[_figures.Count - 1].Draw();
                 comboBox1.Items.Add(_figures.IndexOf(_figures[_figures.Count - 1]));
             }
 
-            else if (radioButton7.Checked == true)
+            else if (radioButton7.Checked)
             {
                 _figures.Add(new Ellipse());
                 _figures[_figures.Count - 1].Draw();
@@ -71,6 +69,9 @@ namespace laba8
         {
             if (radioButton1.Checked || radioButton3.Checked || radioButton7.Checked)
             {
+                button4.Enabled = false;
+                button5.Enabled = false;
+                button1.Enabled = true;
                 (textBox1.Enabled, textBox5.Enabled) = (true, true);
                 (textBox2.Enabled, textBox6.Enabled) = (true, true);
                 textBox4.Enabled = false;
@@ -78,6 +79,9 @@ namespace laba8
 
             else if (radioButton2.Checked || radioButton4.Checked)
             {
+                button4.Enabled = false;
+                button5.Enabled = false;
+                button1.Enabled = true;
                 (textBox1.Enabled, textBox5.Enabled) = (true, true);
                 (textBox2.Enabled, textBox6.Enabled) = (true, false);
                 textBox4.Enabled = false;
@@ -85,9 +89,22 @@ namespace laba8
 
             else if (radioButton5.Checked || radioButton6.Checked)
             {
+                button4.Enabled = true;
+                button5.Enabled = false;
+                button1.Enabled = false;
                 (textBox1.Enabled, textBox5.Enabled) = (true, true);
-                (textBox2.Enabled, textBox6.Enabled) = (true, true);
-                textBox4.Enabled = true;
+                (textBox2.Enabled, textBox6.Enabled) = (false, false);
+                if (radioButton5.Checked)
+                {
+                    textBox4.Text = string.Empty;
+                    textBox4.Enabled = true;
+                }
+
+                else
+                {
+                    textBox4.Enabled = false;
+                    textBox4.Text = "3";
+                }
             }
         }
 
@@ -125,11 +142,7 @@ namespace laba8
                 Graphics g = Graphics.FromImage(Init.bitmap);
                 g.Clear(Color.White);
 
-                if(_figures[comboBox1.SelectedIndex].X + deltaX < Init.pictureBox.Width)
-                    _figures[comboBox1.SelectedIndex].X += deltaX;
-
-                if (_figures[comboBox1.SelectedIndex].Y + deltaY < Init.pictureBox.Height)
-                    _figures[comboBox1.SelectedIndex].Y += deltaY;
+                _figures[comboBox1.SelectedIndex].MoveTo(deltaX, deltaY);
 
                 foreach (Figure fg in _figures)
                 {
