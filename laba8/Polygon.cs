@@ -1,24 +1,51 @@
 ﻿using System;
+using System.DirectoryServices.ActiveDirectory;
 
 namespace laba8
 {
     internal class Polygon: Figure
     {
-        public Polygon(double x =0 , double y = 0, double width = 0, double height = 0) : base(x, y, width, height) { }
+        private Point[] _points;
+
+        public Polygon(int index) : base()
+        {
+            _points = new Point[index];
+        }
 
         public override void Draw()
         {
+            Graphics g = Graphics.FromImage(Init.bitmap);
+            g.DrawPolygon(Init.pen, _points);
 
+            Init.pictureBox.Image = Init.bitmap;
+        }
+
+        public override void MoveTo(double deltaX, double deltaY)
+        {
+            for (int i = 0; i < _points.Length; i++)
+            {
+                if (_points[i].X + deltaX < Init.pictureBox.Width)
+                    _points[i].X += (int)deltaX;
+
+                if (_points[i].Y + deltaY < Init.pictureBox.Height)
+                    _points[i].Y += (int)deltaY;
+            }
+        }
+
+        public Point this[int index]
+        {
+            set
+            {
+                if(index >= 0 && index < _points.Length)
+                {
+                    _points[index] = value;
+                }
+            }
         }
     }
     
     internal class Triangle: Polygon
     {
-        public Triangle(double x = 0, double y = 0, double width = 0, double height = 0) : base(x, y, width, height) { }
-
-        public override void Draw() 
-        { 
-        
-        }
+        public Triangle() : base(3) { }
     }
 }
