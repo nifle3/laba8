@@ -19,8 +19,21 @@ namespace laba8
         
         public bool MoveTo(double deltax, double deltay)
         {
-            return true;
-        }
+            double sidex = _x + _width;
+            double sidey = _y + _height;
+
+            double pBWidth = Init.pictureBox.Width;
+            double pBHeight = Init.pictureBox.Height;
+
+            if (sidex + deltax <= pBWidth && _x + deltax >= 0 && sidey + deltay <= pBHeight && _y + deltay >= 0)
+            {
+                _x += deltax;
+                _y += deltay;
+                return true;
+            }
+
+            return false;
+            }
 
         public void Scale(double deltax, double deltay)
         {

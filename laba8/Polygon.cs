@@ -47,7 +47,7 @@ namespace laba8
             double width = Init.pictureBox.Width;
             double Height = Init.pictureBox.Height;
 
-            if (!(x >= width || x <= width) && !(y >= Height || y <= Height))
+            if (!(x >= width || x <= 0) && !(y >= Height || y <= 0))
                 return true;
 
             return false;
