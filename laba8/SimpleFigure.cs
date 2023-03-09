@@ -41,7 +41,7 @@ namespace laba8
             double pBWidth = Init.pictureBox.Width;
             double pBHeight = Init.pictureBox.Height;
 
-            if (_width + deltax >= 0 && _width <= pBWidth && _height + deltay >= 0 && _height <= pBHeight)
+            if (_width + deltax >= 0 && _width + deltax <= pBWidth && _height + deltay >= 0 && _height + deltay <= pBHeight)
             {
                 _width += deltax;
                 _height += deltay;

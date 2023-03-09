@@ -37,7 +37,7 @@ namespace laba8
 
         private void button1_Click(object sender, EventArgs e)
         {
-            bool eq = Check(tBy.Text, tBx.Text, tBh.Text);
+            bool eq = Check(tBy.Text, tBx.Text, tBw.Text);
             bool a = eq && Check(tBw.Text);
 
             if (radioButton1.Checked && a)
@@ -47,7 +47,7 @@ namespace laba8
 
             else if (radioButton2.Checked && eq)
             {
-                AddFigure(new Circle(double.Parse(tBx.Text), double.Parse(tBy.Text), double.Parse(tBh.Text ) / 2));
+                AddFigure(new Circle(double.Parse(tBx.Text), double.Parse(tBy.Text), double.Parse(tBw.Text ) / 2));
             }
 
             else if (radioButton3.Checked && a)
@@ -57,12 +57,12 @@ namespace laba8
 
             else if (radioButton4.Checked && eq)
             {
-                AddFigure(new Square(double.Parse(tBx.Text), double.Parse(tBy.Text), double.Parse(tBh.Text)));
+                AddFigure(new Square(double.Parse(tBx.Text), double.Parse(tBy.Text), double.Parse(tBw.Text)));
             }
 
             else if (radioButton5.Checked)
             {
-                AddFigure
+                //AddFigure();
 
                 textBox4.Enabled = true;
                 button4.Enabled = true;
@@ -70,7 +70,7 @@ namespace laba8
 
             else if (radioButton6.Checked)
             {
-                AddFigure();
+                //AddFigure();
                 
                 textBox4.Enabled = false;
                 button4.Enabled = true;
@@ -80,6 +80,8 @@ namespace laba8
             {
                 
             }
+
+            comboBox1.SelectedIndex = _figures.Count-1;
         }
 
         private void radioButtonClick(object sender, EventArgs e)
@@ -212,6 +214,22 @@ namespace laba8
             //    }
 
             //}
+        }
+
+        private void btScale_Click(object sender, EventArgs e)
+        {
+            if (Check(textBox3.Text, textBox7.Text) && comboBox1.Items.Count >= 1)
+            {
+                Graphics g = Graphics.FromImage(Init.bitmap);
+                g.Clear(Color.White);
+
+                _figures[comboBox1.SelectedIndex].Scale(double.Parse(textBox3.Text), double.Parse(textBox7.Text)) ;
+
+                foreach (IFigurable fg in _figures)
+                {
+                    fg.Draw();
+                }
+            }
         }
     }
 }

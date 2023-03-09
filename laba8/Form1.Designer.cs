@@ -54,6 +54,7 @@
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.btScale = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -305,11 +306,22 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // btScale
+            // 
+            this.btScale.Location = new System.Drawing.Point(564, 333);
+            this.btScale.Name = "btScale";
+            this.btScale.Size = new System.Drawing.Size(75, 23);
+            this.btScale.TabIndex = 30;
+            this.btScale.Text = "Scale";
+            this.btScale.UseVisualStyleBackColor = true;
+            this.btScale.Click += new System.EventHandler(this.btScale_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btScale);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox7);
@@ -372,5 +384,6 @@
         private TextBox textBox7;
         private Button button4;
         private Button button5;
+        private Button btScale;
     }
 }

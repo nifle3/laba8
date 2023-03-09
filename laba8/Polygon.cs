@@ -24,7 +24,6 @@ namespace laba8
         public bool MoveTo(double deltax, double deltay)
         {
             Point[] point = (Point[])_points.Clone();
-            bool checkOutWindow = true;
 
             for (int i = 0; i < point.Length; i++)
             {
