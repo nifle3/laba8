@@ -29,9 +29,7 @@ namespace laba8
             for (int i = 0; i < point.Length; i++)
             {
                 if (!OutWidnow(point[i].X + deltax, point[i].Y + deltay))
-                {
                     return false;
-                }
 
                 point[i].X += (int)deltax;
                 point[i].Y += (int)deltay;
@@ -47,7 +45,7 @@ namespace laba8
             double width = Init.pictureBox.Width;
             double Height = Init.pictureBox.Height; 
 
-            if (!(x >= width || x <= 0) && !(y >= Height || y <= 0))
+            if (x <= width && x >= 0 && y <= Height && y >= 0)
                 return true;
 
             return false;
@@ -61,10 +59,8 @@ namespace laba8
             {
                 for (int i = 1; i < point.Length; i++)
                 {
-                    if (OutWidnow(point[i].X + deltax, point[i].Y + deltay))
-                    {
+                    if (!OutWidnow(point[i].X + deltax, point[i].Y + deltay))
                         return false;
-                    }
 
                     point[i].X += (int)deltax;
                     point[i].Y += (int)deltay;

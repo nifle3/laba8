@@ -84,7 +84,8 @@ namespace laba8
                 AddFigure(new Triangle(_pt.ToArray()));
                 
                 textBox4.Enabled = false;
-                btSide.Enabled = true;
+                btSide.Enabled = false;
+                BtPoint.Enabled = true;
                 button1.Enabled = false;
             }
 
