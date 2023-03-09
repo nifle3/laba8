@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.DirectoryServices;
 using System.DirectoryServices.ActiveDirectory;
 using System.Numerics;
@@ -33,10 +34,10 @@ namespace laba8
                 }
 
                 point[i].X += (int)deltax;
-                point[i].Y = (int)deltay;
+                point[i].Y += (int)deltay;
             }
 
-            _points = point;
+            _points = (Point[])point.Clone();
 
             return true;
         }
@@ -61,14 +62,16 @@ namespace laba8
                 for (int i = 1; i < point.Length; i++)
                 {
                     if (OutWidnow(point[i].X + deltax, point[i].Y + deltay))
+                    {
                         return false;
+                    }
 
                     point[i].X += (int)deltax;
                     point[i].Y += (int)deltay;
                 }
             }
 
-            _points = point;
+            _points = (Point[])point.Clone();
 
             return true;
         }

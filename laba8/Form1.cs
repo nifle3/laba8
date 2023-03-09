@@ -2,12 +2,16 @@ using System.DirectoryServices;
 using System.Net.Http.Headers;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.CompilerServices;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace laba8
 {
     public partial class Form1 : Form
     {
         private List<IFigurable> _figures = new List<IFigurable>();
+        private List<Point> _pt;
+        private int _pointLength;
 
         private bool Check(params string[] x)
         {
@@ -24,6 +28,11 @@ namespace laba8
             _figures.Add(temp);
             _figures[_figures.Count - 1].Draw();
             comboBox1.Items.Add(_figures.IndexOf(_figures[_figures.Count - 1]));
+
+            tBy.Text = String.Empty;
+            tBx.Text = String.Empty;
+
+            comboBox1.SelectedIndex = _figures.Count - 1;
         }
 
         public Form1()
@@ -32,7 +41,7 @@ namespace laba8
 
             Init.bitmap = new Bitmap(pictureBox1.ClientSize.Width, pictureBox1.ClientSize.Height);
             Init.pictureBox = pictureBox1;
-            Init.pen = new Pen(Color.Black, 5); ;
+            Init.pen = new Pen(Color.Black, 5);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -62,35 +71,36 @@ namespace laba8
 
             else if (radioButton5.Checked)
             {
-                //AddFigure();
+                AddFigure(new Polygon(_pt.ToArray()));
 
                 textBox4.Enabled = true;
-                button4.Enabled = true;
+                btSide.Enabled = true;
+
+                button1.Enabled = false;
             }
 
             else if (radioButton6.Checked)
             {
-                //AddFigure();
+                AddFigure(new Triangle(_pt.ToArray()));
                 
                 textBox4.Enabled = false;
-                button4.Enabled = true;
+                btSide.Enabled = true;
+                button1.Enabled = false;
             }
 
-            else if (radioButton7.Checked)
+            else if (radioButton7.Checked && a)
             {
-                
+                AddFigure(new MyFig(double.Parse(tBx.Text), double.Parse(tBy.Text), double.Parse(tBw.Text), double.Parse(tBh.Text)));
             }
-
-            comboBox1.SelectedIndex = _figures.Count-1;
         }
 
         private void radioButtonClick(object sender, EventArgs e)
         {
             if (radioButton1.Checked || radioButton3.Checked || radioButton7.Checked)
             {
-                button4.Enabled = false;
-                button5.Enabled = false;
                 button1.Enabled = true;
+
+                (btSide.Enabled, BtPoint.Enabled) = (false, false);
 
                 (tBx.Enabled, tBy.Enabled) = (true, true);
                 (tBw.Enabled, tBh.Enabled) = (true, true);
@@ -100,8 +110,8 @@ namespace laba8
 
             else if (radioButton2.Checked || radioButton4.Checked)
             {
-                button4.Enabled = false;
-                button5.Enabled = false;
+                btSide.Enabled = false;
+                BtPoint.Enabled = false;
                 button1.Enabled = true;
 
                 (tBx.Enabled, tBy.Enabled) = (true, true);
@@ -112,8 +122,6 @@ namespace laba8
 
             else if (radioButton5.Checked || radioButton6.Checked)
             {
-                button4.Enabled = true;
-                button5.Enabled = false;
                 button1.Enabled = false;
 
                 (tBx.Enabled, tBy.Enabled) = (true, true);
@@ -121,14 +129,27 @@ namespace laba8
 
                 if (radioButton5.Checked)
                 {
+                    BtPoint.Enabled = false;
+                    btSide.Enabled = true;
+
                     textBox4.Text = string.Empty;
                     textBox4.Enabled = true;
+
+                    (tBx.Enabled, tBy.Enabled) = (false, false);
                 }
 
                 else
                 {
                     textBox4.Enabled = false;
                     textBox4.Text = "3";
+                    _pointLength = 3;
+
+                    btSide.Enabled = false;
+                    BtPoint.Enabled = true;
+
+                    (tBx.Enabled, tBy.Enabled) = (true, true);
+
+                    _pt = new List<Point>(3);
                 }
             }
         }
@@ -178,42 +199,37 @@ namespace laba8
 
         private void button4_Click(object sender, EventArgs e)
         {
-            //if (int.TryParse(textBox4.Text, out int i) && i >= 3)
-            //{
-            //    if (radioButton5.Checked)
-            //        _figures.Add(new Polygon(i));
+            if (int.TryParse(textBox4.Text, out var a))
+            {
+                _pt = new List<Point>(a);
+                _pointLength = a;
 
-            //    else if (radioButton6.Checked)
-            //        _figures.Add(new Triangle());
-
-            //    textBox4.Enabled = false;
-            //    button5.Enabled = true;
-            //    button4.Enabled = false;
-            //}
+                textBox4.Enabled = false;
+                btSide.Enabled = false;
+                BtPoint.Enabled = true;
+                tBx.Enabled = true;
+                tBy.Enabled = true;
+            }
         }
+
         private void button5_Click(object sender, EventArgs e)
         {
-            //Polygon? pg = _figures[_figures.Count - 1] as Polygon;
+            if (Check(tBx.Text, tBy.Text) && _pt.Count < _pointLength - 1)
+            {
+                _pt.Add(new Point(int.Parse(tBx.Text), int.Parse(tBy.Text)));
+            }
 
-            //if (int.TryParse(textBox1.Text, out int x) && int.TryParse(textBox5.Text, out int y) && pg is not null)
-            //{
-            //    if (pg.i < pg.count)
-            //    {
-            //        pg[pg.i] = new Point(x, y);
-            //        pg.i++;
+            else if (_pt.Count == _pointLength - 1)
+            {
+                _pt.Add(new Point(int.Parse(tBx.Text), int.Parse(tBy.Text)));
 
-            //        textBox1.Text = string.Empty;
-            //        textBox5.Text = string.Empty;
-            //    }
-                
-            //    if (pg.i == pg.count)
-            //    {
-            //        label1.Text = "giuasdsad";
-            //        button1.Enabled = true;
-            //        button5.Enabled = false;
-            //    }
+                BtPoint.Enabled = false;
+                (tBx.Enabled, tBy.Enabled) = (false, false);
+                button1.Enabled = true;
+            }
 
-            //}
+            tBy.Text = String.Empty;
+            tBx.Text = String.Empty;
         }
 
         private void btScale_Click(object sender, EventArgs e)

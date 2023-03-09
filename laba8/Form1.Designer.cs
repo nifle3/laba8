@@ -52,8 +52,8 @@
             this.tBy = new System.Windows.Forms.TextBox();
             this.tBh = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btSide = new System.Windows.Forms.Button();
+            this.BtPoint = new System.Windows.Forms.Button();
             this.btScale = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -286,25 +286,25 @@
             this.textBox7.Size = new System.Drawing.Size(43, 23);
             this.textBox7.TabIndex = 27;
             // 
-            // button4
+            // btSide
             // 
-            this.button4.Location = new System.Drawing.Point(655, 151);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 28;
-            this.button4.Text = "side";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btSide.Location = new System.Drawing.Point(655, 151);
+            this.btSide.Name = "btSide";
+            this.btSide.Size = new System.Drawing.Size(75, 23);
+            this.btSide.TabIndex = 28;
+            this.btSide.Text = "side";
+            this.btSide.UseVisualStyleBackColor = true;
+            this.btSide.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
+            // BtPoint
             // 
-            this.button5.Location = new System.Drawing.Point(655, 180);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 29;
-            this.button5.Text = "Add point";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.BtPoint.Location = new System.Drawing.Point(655, 180);
+            this.BtPoint.Name = "BtPoint";
+            this.BtPoint.Size = new System.Drawing.Size(75, 23);
+            this.BtPoint.TabIndex = 29;
+            this.BtPoint.Text = "Add point";
+            this.BtPoint.UseVisualStyleBackColor = true;
+            this.BtPoint.Click += new System.EventHandler(this.button5_Click);
             // 
             // btScale
             // 
@@ -322,8 +322,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btScale);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.BtPoint);
+            this.Controls.Add(this.btSide);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.tBh);
             this.Controls.Add(this.tBy);
@@ -382,8 +382,8 @@
         private TextBox tBy;
         private TextBox tBh;
         private TextBox textBox7;
-        private Button button4;
-        private Button button5;
+        private Button btSide;
+        private Button BtPoint;
         private Button btScale;
     }
 }
