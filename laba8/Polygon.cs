@@ -52,9 +52,25 @@ namespace laba8
             return false;
         }
 
-        public void Scale(double deltax, double deltay)
+        public bool Scale(double deltax, double deltay)
         {
+            Point[] point = (Point[])_points.Clone();
+            
+            if (point.Length != 1) 
+            {
+                for (int i = 1; i < point.Length; i++)
+                {
+                    if (OutWidnow(point[i].X + deltax, point[i].Y + deltay))
+                        return false;
 
+                    point[i].X += (int)deltax;
+                    point[i].Y += (int)deltay;
+                }
+            }
+
+            _points = point;
+
+            return true;
         }
     }
     

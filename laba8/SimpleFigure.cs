@@ -36,7 +36,7 @@ namespace laba8
             return false;
             }
 
-        public void Scale(double deltax, double deltay)
+        public bool Scale(double deltax, double deltay)
         {
             double pBWidth = Init.pictureBox.Width;
             double pBHeight = Init.pictureBox.Height;
@@ -45,7 +45,11 @@ namespace laba8
             {
                 _width += deltax;
                 _height += deltay;
+
+                return true;
             }
+
+            return false;
         }
             
         public double X { set { _x = value >= 0 ? value : 0; } get => _x; }
