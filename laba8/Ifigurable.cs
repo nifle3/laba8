@@ -10,7 +10,7 @@ namespace laba8
     internal interface IFigurable
     {
         public abstract void Draw();
-        public void MoveTo(double deltax, double deltay);
+        public bool MoveTo(double deltax, double deltay);
         public void Scale(double deltax, double deltay);
     }
 }

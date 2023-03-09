@@ -1,6 +1,8 @@
 ﻿using System;
 using System.DirectoryServices;
 using System.DirectoryServices.ActiveDirectory;
+using System.Numerics;
+using System.Reflection.Metadata.Ecma335;
 
 namespace laba8
 {
@@ -8,13 +10,47 @@ namespace laba8
     {
         private Point[] _points;
 
+        public Polygon(Point[] points) =>
+            _points = points;
+
         public void Draw()
         {
+            Graphics g = Graphics.FromImage(Init.bitmap);
+            g.DrawPolygon(Init.pen, _points);   
 
+            Init.pictureBox.Image = Init.bitmap;
         }
-        public void MoveTo(double deltax, double deltay)
-        {
 
+        public bool MoveTo(double deltax, double deltay)
+        {
+            Point[] point = (Point[])_points.Clone();
+            bool checkOutWindow = true;
+
+            for (int i = 0; i < point.Length; i++)
+            {
+                if (!OutWidnow(point[i].X + deltax, point[i].Y + deltay))
+                {
+                    return false;
+                }
+
+                point[i].X += (int)deltax;
+                point[i].Y = (int)deltay;
+            }
+
+            _points = point;
+
+            return true;
+        }
+
+        private bool OutWidnow(double x, double y)
+        {
+            double width = Init.pictureBox.Width;
+            double Height = Init.pictureBox.Height;
+
+            if (!(x >= width || x <= width) && !(y >= Height || y <= Height))
+                return true;
+
+            return false;
         }
 
         public void Scale(double deltax, double deltay)
@@ -25,9 +61,9 @@ namespace laba8
     
     internal class Triangle: Polygon
     {
-        public Triangle()
-        {
+        //public Triangle()
+        //{
 
-        }
+        //}
     }
 }

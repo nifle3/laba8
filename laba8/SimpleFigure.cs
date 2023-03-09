@@ -17,9 +17,9 @@ namespace laba8
 
         public abstract void Draw();
         
-        public void MoveTo(double deltax, double deltay)
+        public bool MoveTo(double deltax, double deltay)
         {
-
+            return true;
         }
 
         public void Scale(double deltax, double deltay)

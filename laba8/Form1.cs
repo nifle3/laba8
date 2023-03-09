@@ -62,8 +62,7 @@ namespace laba8
 
             else if (radioButton5.Checked)
             {
-                _figures[_figures.Count - 1].Draw();
-                comboBox1.Items.Add(_figures.IndexOf(_figures[_figures.Count - 1]));
+                AddFigure
 
                 textBox4.Enabled = true;
                 button4.Enabled = true;
@@ -71,8 +70,7 @@ namespace laba8
 
             else if (radioButton6.Checked)
             {
-                _figures[_figures.Count - 1].Draw();
-                comboBox1.Items.Add(_figures.IndexOf(_figures[_figures.Count - 1]));
+                AddFigure();
                 
                 textBox4.Enabled = false;
                 button4.Enabled = true;
@@ -80,9 +78,7 @@ namespace laba8
 
             else if (radioButton7.Checked)
             {
-                _figures.Add(new Ellipse());
-                _figures[_figures.Count - 1].Draw();
-                comboBox1.Items.Add(_figures.IndexOf(_figures[_figures.Count - 1]));
+                
             }
         }
 
