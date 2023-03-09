@@ -12,6 +12,7 @@ namespace laba8
         private double _y;
         private double _width;
         private double _height;
+
         public SimpleFigure(double x, double y, double width, double height) =>
            (Width, Height, X, Y) = (width, height, x, y);
 
@@ -37,7 +38,14 @@ namespace laba8
 
         public void Scale(double deltax, double deltay)
         {
+            double pBWidth = Init.pictureBox.Width;
+            double pBHeight = Init.pictureBox.Height;
 
+            if (_width + deltax >= 0 && _width <= pBWidth && _height + deltay >= 0 && _height <= pBHeight)
+            {
+                _width += deltax;
+                _height += deltay;
+            }
         }
             
         public double X { set { _x = value >= 0 ? value : 0; } get => _x; }

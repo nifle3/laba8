@@ -45,7 +45,7 @@ namespace laba8
         private bool OutWidnow(double x, double y)
         {
             double width = Init.pictureBox.Width;
-            double Height = Init.pictureBox.Height;
+            double Height = Init.pictureBox.Height; 
 
             if (!(x >= width || x <= 0) && !(y >= Height || y <= 0))
                 return true;
@@ -61,9 +61,8 @@ namespace laba8
     
     internal class Triangle: Polygon
     {
-        //public Triangle()
-        //{
-
-        //}
+        public Triangle(Point[] pt): base (pt)
+        {
+        }
     }
 }
