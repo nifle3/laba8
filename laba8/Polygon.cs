@@ -8,11 +8,16 @@ namespace laba8
     {
         private Point[] _points;
 
-        public override void Draw()
+        public void Draw()
         {
 
         }
-        public override void MoveTo(double deltax, double deltay)
+        public void MoveTo(double deltax, double deltay)
+        {
+
+        }
+
+        public void Scale(double deltax, double deltay)
         {
 
         }

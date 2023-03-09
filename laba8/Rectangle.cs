@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace laba8
 {
-    internal class Rectangle: Figure
+    internal class Rectangle: SimpleFigure
     {
         public Rectangle(double x = 0, double y = 0, double width = 0, double height = 0) : base(x, y, width, height) { }
+        
         public override void Draw()
         {
             Graphics g = Graphics.FromImage(Init.bitmap);
@@ -18,9 +19,11 @@ namespace laba8
             Init.pictureBox.Image = Init.bitmap;
         }
     }
+
     internal class Square : Rectangle 
     {
         public Square(double x = 0, double y = 0, double side = 0) : base(x, y, side, side) { }
+       
         public override void Draw()
         {
             base.Draw();

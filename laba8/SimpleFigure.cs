@@ -6,13 +6,27 @@ using System.Threading.Tasks;
 
 namespace laba8
 {
-    internal abstract class SimpleFigure // часть класса Figure с полями
+    internal abstract class SimpleFigure : IFigurable
     {
         private double _x;
         private double _y;
         private double _width;
         private double _height;
+        public SimpleFigure(double x, double y, double width, double height) =>
+           (Width, Height, X, Y) = (width, height, x, y);
 
+        public abstract void Draw();
+        
+        public void MoveTo(double deltax, double deltay)
+        {
+
+        }
+
+        public void Scale(double deltax, double deltay)
+        {
+
+        }
+            
         public double X { set { _x = value >= 0 ? value : 0; } get => _x; }
         public double Y { set { _y = value >= 0 ? value : 0; } get => _y; }
         public double Width { set { _width = value >= 0 ? value : 1; } get => _width; }

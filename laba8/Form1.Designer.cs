@@ -47,10 +47,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.tBx = new System.Windows.Forms.TextBox();
+            this.tBw = new System.Windows.Forms.TextBox();
+            this.tBy = new System.Windows.Forms.TextBox();
+            this.tBh = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -249,34 +249,34 @@
             this.label5.TabIndex = 21;
             this.label5.Text = "Enter quantity side";
             // 
-            // textBox1
+            // tBx
             // 
-            this.textBox1.Location = new System.Drawing.Point(655, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(43, 23);
-            this.textBox1.TabIndex = 22;
+            this.tBx.Location = new System.Drawing.Point(655, 33);
+            this.tBx.Name = "tBx";
+            this.tBx.Size = new System.Drawing.Size(43, 23);
+            this.tBx.TabIndex = 22;
             // 
-            // textBox2
+            // tBw
             // 
-            this.textBox2.Location = new System.Drawing.Point(655, 78);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(43, 23);
-            this.textBox2.TabIndex = 23;
+            this.tBw.Location = new System.Drawing.Point(655, 78);
+            this.tBw.Name = "tBw";
+            this.tBw.Size = new System.Drawing.Size(43, 23);
+            this.tBw.TabIndex = 23;
             // 
-            // textBox5
+            // tBy
             // 
-            this.textBox5.Location = new System.Drawing.Point(704, 33);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(43, 23);
-            this.textBox5.TabIndex = 25;
+            this.tBy.Location = new System.Drawing.Point(704, 33);
+            this.tBy.Name = "tBy";
+            this.tBy.Size = new System.Drawing.Size(43, 23);
+            this.tBy.TabIndex = 25;
             // 
-            // textBox6
+            // tBh
             // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(704, 78);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(43, 23);
-            this.textBox6.TabIndex = 26;
+            this.tBh.Enabled = false;
+            this.tBh.Location = new System.Drawing.Point(704, 78);
+            this.tBh.Name = "tBh";
+            this.tBh.Size = new System.Drawing.Size(43, 23);
+            this.tBh.TabIndex = 26;
             // 
             // textBox7
             // 
@@ -313,10 +313,10 @@
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tBh);
+            this.Controls.Add(this.tBy);
+            this.Controls.Add(this.tBw);
+            this.Controls.Add(this.tBx);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label4);
@@ -365,10 +365,10 @@
         private Label label4;
         private TextBox textBox4;
         private Label label5;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox5;
-        private TextBox textBox6;
+        private TextBox tBx;
+        private TextBox tBw;
+        private TextBox tBy;
+        private TextBox tBh;
         private TextBox textBox7;
         private Button button4;
         private Button button5;

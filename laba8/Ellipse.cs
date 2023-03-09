@@ -2,7 +2,7 @@
 
 namespace laba8
 {
-    internal class Ellipse :Figure
+    internal class Ellipse : SimpleFigure, IFigurable
     {
         public Ellipse(double x = 0,double y = 0, double width = 0, double height = 0) : base(x,y,width,height) { }
 
